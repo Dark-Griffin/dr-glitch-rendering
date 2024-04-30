@@ -1,3 +1,5 @@
+require "app/glitch_rendering.rb"
+
 def tick args
   args.state.logo_rect ||= { x: 576,
                              y: 200,
@@ -39,12 +41,16 @@ def tick args
                             anchor_x: 0.5,
                             anchor_y: 0.5 }
 
-  args.outputs.sprites << { x: args.state.logo_rect.x,
+  if args.inputs.keyboard.space
+    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: args.state.tick_count })
+  else
+    args.outputs.sprites << { x: args.state.logo_rect.x,
                             y: args.state.logo_rect.y,
                             w: args.state.logo_rect.w,
                             h: args.state.logo_rect.h,
                             path: 'dragonruby.png',
                             angle: args.state.tick_count }
+  end
 
   args.outputs.labels  << { x: 640,
                             y: 180,
