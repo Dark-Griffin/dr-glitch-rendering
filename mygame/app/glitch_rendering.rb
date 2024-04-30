@@ -7,22 +7,24 @@ def sprite_glitch(args, originalSpriteHash)
     glitched_sprites = []
     divisions_for_x.times do |x|
         divisions_for_y.times do |y|
-            #get an x and y for a chunked part of the original sprite unique to each chunk we will draw
-            random_x_offset = x * (originalSpriteHash[:w] / divisions_for_x)
-            random_y_offset = y * (originalSpriteHash[:h] / divisions_for_y)
-            #now get a randomized chunk coordinate to draw inside that chunk
+            #get an x and y for a chunked part of the original sprite unique to each chunk we will draw, this is where the chunk should draw
+            #random_x_offset = x * (originalSpriteHash[:w] / divisions_for_x)
+            #random_y_offset = y * (originalSpriteHash[:h] / divisions_for_y)
+            #get a randomized "chunk coordinate" to draw inside this real location chunk
             random_x_chunk_mapped = rand(4) * (originalSpriteHash[:w] / divisions_for_x)
             random_y_chunk_mapped = rand(4) * (originalSpriteHash[:h] / divisions_for_y)
-            #random_x_offset = rand(originalSpriteHash[:w])
-            #random_y_offset = rand(originalSpriteHash[:h])
+            #calculate width and height of a chunk
             width = originalSpriteHash[:w] / divisions_for_x
             height = originalSpriteHash[:h] / divisions_for_y
             #add a new sprite hash that is a glitched output
             glitched_sprites << {
+                #draw at real location of chunk, but inverted position along x and y axis of sprite (so top is bottom, left is right, to emphisize glitch effect)
                 x: originalSpriteHash[:x] + (width * (divisions_for_x - x - 1)),
                 y: originalSpriteHash[:y] + (height * (divisions_for_y - y - 1)),
+                #use our calculated width and height for the chunk
                 w: width,
                 h: height,
+                #use the random chunk coordinates as a tiled chunk from the original sprite image to fill the chunk
                 tile_x: random_x_chunk_mapped,
                 tile_y: random_y_chunk_mapped,
                 tile_w: width,
