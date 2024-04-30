@@ -42,14 +42,16 @@ def tick args
                             anchor_y: 0.5 }
 
   if args.inputs.keyboard.space
-    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: args.state.tick_count })
+    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', #angle: args.state.tick_count
+    angle: 0})
   else
     args.outputs.sprites << { x: args.state.logo_rect.x,
                             y: args.state.logo_rect.y,
                             w: args.state.logo_rect.w,
                             h: args.state.logo_rect.h,
                             path: 'dragonruby.png',
-                            angle: args.state.tick_count }
+                            #angle: args.state.tick_count
+                            angle: 0}
   end
 
   args.outputs.labels  << { x: 640,
