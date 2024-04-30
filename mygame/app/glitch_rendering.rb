@@ -1,10 +1,10 @@
 
-def sprite_glitch(args, originalSpriteHash)
+def sprite_glitch(args, originalSpriteHash, delay=10, divisions_for_x=4, divisions_for_y=4)
     # render glitched sprite using original sprite coordinates by rendering only chopped parts of the sprite in the square.
     divisions_for_x = 4
     divisions_for_y = 4
     #delay of reshuffle
-    delay = 10 # in frames to display each shuffle before redoing it.
+    #delay = 10 # in frames to display each shuffle before redoing it.
     #array of glitched sprite hashes to make chunks of sprite
     glitched_sprites = []
 

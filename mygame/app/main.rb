@@ -44,13 +44,39 @@ def tick args
   if args.inputs.keyboard.space
     sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: args.state.tick_count
     #angle: 0
-    })
+    }, 20, 4, 4)
+    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y+200, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: args.state.tick_count
+    #angle: 0
+    }, 20, 4, 4)
   else
     args.outputs.sprites << { x: args.state.logo_rect.x,
                             y: args.state.logo_rect.y,
                             w: args.state.logo_rect.w,
                             h: args.state.logo_rect.h,
                             path: 'dragonruby.png',
+                            angle: args.state.tick_count
+                            #angle: 0
+                          }
+                          args.outputs.sprites << { x: args.state.logo_rect.x,
+                          y: args.state.logo_rect.y + 200,
+                          w: args.state.logo_rect.w,
+                          h: args.state.logo_rect.h,
+                          path: 'dragonruby.png',
+                          angle: args.state.tick_count
+                          #angle: 0
+                        }
+  end
+
+  if args.inputs.keyboard.space
+    sprite_glitch(args, { x: args.state.logo_rect.x + 200, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'sprites/misc/dragon-0.png', angle: args.state.tick_count
+    #angle: 0
+    }, 4, 4, 4)
+  else
+    args.outputs.sprites << { x: args.state.logo_rect.x + 200,
+                            y: args.state.logo_rect.y,
+                            w: args.state.logo_rect.w,
+                            h: args.state.logo_rect.h,
+                            path: 'sprites/misc/dragon-0.png',
                             angle: args.state.tick_count
                             #angle: 0
                           }
