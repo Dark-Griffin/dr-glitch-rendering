@@ -2,6 +2,8 @@
 
 Code to glitch up a sprite using chunks of the original sprite in randomized locations in the sprite area.
 
+![Screenshot of some glitched sprites in action](glitch_screenshot.png?raw=true "What this effect does to our poor little purple dragon")
+
 ## Instructions:
 To run the demonstration, run the dragonruby.exe file.  Press space bar to see the sprites "glitch up" their rendering.
 
