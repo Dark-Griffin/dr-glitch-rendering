@@ -22,31 +22,29 @@ def tick args
 
   args.outputs.labels  << { x: 640,
                             y: 480,
-                            text: "This will render a glitched sprite using the original sprite coordinates by rendering only chopped parts of the sprite in the original area.",
+                            text: "This will render a glitched sprite using the original sprite coordinates.",
                             size_px: 20,
                             anchor_x: 0.5,
                             anchor_y: 0.5 }
 
   args.outputs.labels  << { x: 640,
                             y: 400,
-                            text: "The code that powers what you're seeing right now is located at ./mygame/app/main.rb.",
+                            text: "The sprite memory is stored in args.state.glitched_sprites, which gets blit to screen each frame automatically.",
                             size_px: 20,
                             anchor_x: 0.5,
                             anchor_y: 0.5 }
 
   args.outputs.labels  << { x: 640,
                             y: 380,
-                            text: "(you can change the code while the app is running and see the updates live)",
+                            text: "",
                             size_px: 20,
                             anchor_x: 0.5,
                             anchor_y: 0.5 }
 
   if args.inputs.keyboard.space
-    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: args.state.tick_count
-    #angle: 0
+    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: 0
     }, 20, 4, 4)
-    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y+200, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: args.state.tick_count
-    #angle: 0
+    sprite_glitch(args, { x: args.state.logo_rect.x, y: args.state.logo_rect.y+200, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'dragonruby.png', angle: 0
     }, 20, 4, 4)
   else
     args.outputs.sprites << { x: args.state.logo_rect.x,
@@ -54,22 +52,19 @@ def tick args
                             w: args.state.logo_rect.w,
                             h: args.state.logo_rect.h,
                             path: 'dragonruby.png',
-                            angle: args.state.tick_count
-                            #angle: 0
+                            angle: 0
                           }
                           args.outputs.sprites << { x: args.state.logo_rect.x,
                           y: args.state.logo_rect.y + 200,
                           w: args.state.logo_rect.w,
                           h: args.state.logo_rect.h,
                           path: 'dragonruby.png',
-                          angle: args.state.tick_count
-                          #angle: 0
+                          angle: 0
                         }
   end
 
   if args.inputs.keyboard.space
-    sprite_glitch(args, { x: args.state.logo_rect.x + 200, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'sprites/misc/dragon-0.png', angle: args.state.tick_count
-    #angle: 0
+    sprite_glitch(args, { x: args.state.logo_rect.x + 200, y: args.state.logo_rect.y, w: args.state.logo_rect.w, h: args.state.logo_rect.h, path: 'sprites/misc/dragon-0.png', angle: 0
     }, 4, 4, 4)
   else
     args.outputs.sprites << { x: args.state.logo_rect.x + 200,
@@ -77,8 +72,7 @@ def tick args
                             w: args.state.logo_rect.w,
                             h: args.state.logo_rect.h,
                             path: 'sprites/misc/dragon-0.png',
-                            angle: args.state.tick_count
-                            #angle: 0
+                            angle: 0
                           }
   end
 
@@ -88,8 +82,7 @@ def tick args
                             w: args.state.logo_rect.w,
                             h: args.state.logo_rect.h,
                             path: 'dragonruby.png',
-                            angle: args.state.tick_count
-                            #angle: 0
+                            angle: 0
                           }
 
   args.outputs.labels  << { x: 640,

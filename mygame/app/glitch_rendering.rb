@@ -14,7 +14,7 @@ def sprite_glitch(args, originalSpriteHash, delay=10, divisions_for_x=4, divisio
     end
 
     #if we do not have a glitched sprite for this sprite yet, or if the timer value is 0, we need to create a new glitched sprite lookup table
-    if args.state.glitched_sprites[originalSpriteHash[:path]].nil? || args.state.glitched_sprites[originalSpriteHash[:path]][:timer] == 0
+    if args.state.glitched_sprites[originalSpriteHash[:path]].nil? || args.state.glitched_sprites[originalSpriteHash[:path]][:timer] <= 0
         #create a new glitched sprite lookup table
         args.state.glitched_sprites[originalSpriteHash[:path]] = {
             coordinates: create_division_array_coordinates(args, divisions_for_x, divisions_for_y, originalSpriteHash),
